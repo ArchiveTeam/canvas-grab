@@ -52,7 +52,7 @@ if not WGET_LUA:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20140227.01"
+VERSION = "20140228.01"
 USER_AGENT = ('Mozilla/5.0 (Windows NT 6.1; WOW64) '
     'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36 '
     'ArchiveTeam DOGE/1.0 (WOW SO ARCHIVE MUCH NICE VERY HISTORY)')
@@ -74,7 +74,7 @@ class CheckIP(SimpleTask):
     def process(self, item):
         # NEW for 2014! Check if we are behind firewall/proxy
         ip_str = socket.gethostbyname('canv.as')
-        if ip_str != '54.225.158.227':
+        if ip_str not in ('54.225.158.227', '54.225.205.110'):
             item.log_output('Got IP address: %s' % ip_str)
             item.log_output(
                 'Are you behind a firewall/proxy? That is a big no-no!')
